@@ -118,10 +118,12 @@ if uploaded_file is not None:
         ]
 
         if missing_columns:
-            st.sidebar.error(
-                "Missing columns: " + ", ".join(missing_columns)
-                + ". Showing demo data instead."
-            )
+
+             st.sidebar.error(
+        "CSV upload rejected. Missing required columns: "
+        + ", ".join(missing_columns)
+        + ". Please correct the CSV and upload it again."
+    )
         elif uploaded_df.empty:
             st.sidebar.error(
                 "The uploaded CSV contains no records. "
